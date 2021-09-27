@@ -53,7 +53,6 @@ async def help_vc(client, message):
     text = '''====== Help Menu ======
 **Play as Audio**
 - !play __(reply to audio / youtube url / search query)__
-- !radio __(radio stream url)__
 
 **Play as Video**
 - !stream __(reply to video / youtube url / search query)__
