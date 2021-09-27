@@ -48,7 +48,7 @@ async def resume_vc(client, message):
     elif vc_paused is False:
         return await message.reply("__VC not Paused.__")
 
-@Client.on_message(filters.command("help", "!"))
+@Client.on_message(filters.command("vchelp", "!"))
 async def help_vc(client, message):
     text = '''====== Help Menu ======
 **Play as Audio**
