@@ -95,32 +95,6 @@ async def live_vc(client, message):
     except Exception as e:
         await message.reply(str(e))
         return await group_call.stop()
-
-@Client.on_message(filters.command("radio", "!"))
-async def radio_vc(client, message):
-    global vc_live
-    if not message.chat.id == CHAT_ID: return
-    if not message.from_user.id in ADMINS: return
-    msg = await message.reply("⏳ __Please wait.__")
-    media = message.reply_to_message
-    try: INPUT_SOURCE = message.text.split(" ", 1)[1]
-    except IndexError: return await msg.edit("🔎 __All radio stations listed [here](https://github.com/AnjanaMadu/radio_stations). Please get link from [here](https://github.com/AnjanaMadu/radio_stations)__", disable_web_page_preview=True)
-    if match_url(INPUT_SOURCE) is None:
-        return await msg.edit("🔎 __Give me a valid URL__")
-    try:
-        if not group_call.is_connected:
-            await group_call.join(CHAT_ID)
-        else:
-            await group_call.stop()
-            await asyncio.sleep(3)
-            await group_call.join(CHAT_ID)
-            
-        await msg.edit("🚩 __Radio Playing...__")
-        await group_call.start_audio(INPUT_SOURCE, repeat=False)
-        vc_live = True
-    except Exception as e:
-        await message.reply(str(e))
-        return await group_call.stop()
     
 @Client.on_message(filters.command("play", "!"))
 async def play_vc(client, message):
@@ -128,7 +102,7 @@ async def play_vc(client, message):
     if not message.chat.id == CHAT_ID: return
     msg = await message.reply("⏳ __Please wait.__")
     if vc_live == True:
-        return await msg.edit("💬 __Live or Radio Ongoing. Please stop it via `!endvc`.__")
+        return await msg.edit("💬 __Live Ongoing. Please stop it via `!endvc`.__")
     media = message.reply_to_message
     THUMB_URL, VIDEO_TITLE, VIDEO_DURATION = "https://images3.alphacoders.com/687/687231.jpg", "Music", "Not Found"
     if media and media.media:
