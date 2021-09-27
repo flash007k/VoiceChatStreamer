@@ -130,7 +130,7 @@ async def play_vc(client, message):
     if vc_live == True:
         return await msg.edit("💬 __Live or Radio Ongoing. Please stop it via `!endvc`.__")
     media = message.reply_to_message
-    THUMB_URL, VIDEO_TITLE, VIDEO_DURATION = "https://appletld.com/wp-content/uploads/2020/10/E3593D8D-6F1C-4A16-B065-2154ED6B2355.png", "Music", "Not Found"
+    THUMB_URL, VIDEO_TITLE, VIDEO_DURATION = "https://images3.alphacoders.com/687/687231.jpg", "Music", "Not Found"
     if media and media.media:
         await msg.edit("📥 __Downloading...__")
         LOCAL_FILE = await client.download_media(media)
@@ -167,7 +167,7 @@ async def stream_vc(client, message):
     if vc_live == True:
         return await msg.edit("💬 __Live or Radio Ongoing. Please stop it via `!endvc`.__")
     media = message.reply_to_message
-    THUMB_URL, VIDEO_TITLE, VIDEO_DURATION = "https://appletld.com/wp-content/uploads/2020/10/E3593D8D-6F1C-4A16-B065-2154ED6B2355.png", "Music", "Not Found"
+    THUMB_URL, VIDEO_TITLE, VIDEO_DURATION = "https://images8.alphacoders.com/812/812479.jpg", "Music", "Not Found"
     if media and media.media:
         await msg.edit("📥 __Downloading...__")
         LOCAL_FILE = await client.download_media(media)
